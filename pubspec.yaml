@@ -43,6 +43,10 @@ dependencies:
   file_picker: ^4.2.7
   shared_preferences: ^2.0.13
 
+flutter_icons:
+  android: true
+  image_path: "lib/assets/icons/logo.png"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
