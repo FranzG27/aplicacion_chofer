@@ -138,7 +138,7 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea2.elementAt(0));
          print("linea 2==================================================1");
-         if(lin2){
+         if(lin2==false){
          lineasencontradas.add("linea 2 ida");
          lineasenc=lineasenc+"2I - ";
          lin2=true;
@@ -149,7 +149,7 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea2.elementAt(1));
          print("linea 2==================================================2");
-        if(lin2v){
+        if(lin2v==false){
          lineasencontradas.add("linea 2 vuelta");
          lineasenc=lineasenc+"2V - ";
          lin2v =true;
@@ -186,7 +186,7 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea8.elementAt(0));
          print("linea 8==================================================1");
-          if(lin8){
+          if(lin8==false){
           lineasencontradas.add("linea 8 ida");
           lineasenc=lineasenc+"8I - ";
           lin8=true;
