@@ -168,7 +168,7 @@ class _MapScreenState extends State<MapScreen> {
         }
         
       }
-      break;
+      
     });
     linea5.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
