@@ -83,6 +83,29 @@ class _MapScreenState extends State<MapScreen> {
     _googleMapController?.dispose();
     super.dispose();
   }
+  List<String> lineasencontradas =[];
+  String lineasenc ="";
+  bool lin1=false;
+  bool lin2=false;
+  bool lin5=false;
+  bool lin8=false;
+  bool lin9=false;
+  bool lin10=false;
+  bool lin11=false;
+  bool lin16=false;
+  bool lin17=false;
+  bool lin18=false;
+   bool lin1v=false;
+  bool lin2v=false;
+  bool lin5v=false;
+  bool lin8v=false;
+  bool lin9v=false;
+  bool lin10v=false;
+  bool lin11v=false;
+  bool lin16v=false;
+  bool lin17v=false;
+  bool lin18v=false;
+
 
   void getRoutesInsideCircles(double currentLat,double currentLong){
     Set <Polyline> capturedRoutes ={};  
@@ -90,12 +113,24 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea1.elementAt(0));
          print("linea 1==================================================1");
+         if(lin1==false){
+         lineasencontradas.add("linea 1 ida");
+         lineasenc=lineasenc+"linea 1 ida \n";
+         lin1=true;
+         }
+         
       }
     });
     linea1.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea1.elementAt(1));
          print("linea 1==================================================2");
+        if(lin1v==false){
+        lineasencontradas.add("linea 1 vuelta");
+         lineasenc=lineasenc+"1I - ";
+         lin1v=true;
+        }
+         
       }
     });
     //===========linea 2
@@ -103,12 +138,22 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea2.elementAt(0));
          print("linea 2==================================================1");
+         if(lin2){
+         lineasencontradas.add("linea 2 ida");
+         lineasenc=lineasenc+"2I - ";
+         lin2=true;
+         }
       }
     });
     linea2.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea2.elementAt(1));
          print("linea 2==================================================2");
+        if(lin2v){
+         lineasencontradas.add("linea 2 vuelta");
+         lineasenc=lineasenc+"2V - ";
+         lin2v =true;
+         }
       }
     });
 //===========linea 5
@@ -116,12 +161,21 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea5.elementAt(0));
          print("linea 5==================================================1");
+        if(lin5==false){
+        lineasencontradas.add("linea 5 ida");
+        lineasenc=lineasenc+"5I - ";
+        lin5=true;
+        }
+        
       }
+      break;
     });
     linea5.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea5.elementAt(1));
          print("linea 5==================================================2");
+         lineasencontradas.add("linea 5 vuelta"); 
+         lineasenc=lineasenc+"5V - ";
       }
     });
     //===========linea 8
@@ -129,12 +183,16 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea8.elementAt(0));
          print("linea 8==================================================1");
+          lineasencontradas.add("linea 8 ida");
+          lineasenc=lineasenc+"linea 8 ida \n";
       }
     });
     linea8.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea8.elementAt(1));
          print("linea 8==================================================2");
+        lineasencontradas.add("linea 8 vuelta");
+        lineasenc=lineasenc+"linea 8 vuelta \n";
       }
     });
     //===========linea 9
@@ -142,12 +200,16 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea9.elementAt(0));
          print("linea 9==================================================1");
+        lineasencontradas.add("linea 9 ida");
+        lineasenc=lineasenc+"linea 9 ida \n";
       }
     });
     linea9.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea9.elementAt(1));
          print("linea 9==================================================2");
+        lineasencontradas.add("linea 9 vuelta");
+        lineasenc=lineasenc+"linea 9 vuelta \n";
       }
     });
 
@@ -156,12 +218,16 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea10.elementAt(0));
          print("linea 10==================================================1");
+        lineasencontradas.add("linea 10 ida");
+        lineasenc=lineasenc+"linea 10 ida \n";
       }
     });
     linea10.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea10.elementAt(1));
          print("linea 10==================================================2");
+        lineasencontradas.add("linea 10 vuelta");
+        lineasenc=lineasenc+"linea 10 vuelta \n";
       }
     });
      //===========linea 11
@@ -169,12 +235,16 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea11.elementAt(0));
          print("linea 11==================================================1");
+        lineasencontradas.add("linea 11 ida");
+        lineasenc=lineasenc+"linea 11 ida \n";
       }
     });
     linea11.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea11.elementAt(1));
          print("linea 11==================================================2");
+        lineasencontradas.add("linea 11 vuelta");
+        lineasenc=lineasenc+"linea 11 vuelta \n";
       }
     });
      //===========linea 16
@@ -182,12 +252,16 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea16.elementAt(0));
          print("linea 16==================================================1");
+        lineasencontradas.add("linea 16 ida");
+        lineasenc=lineasenc+"16I - ";
       }
     });
     linea16.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea16.elementAt(1));
          print("linea 16==================================================2");
+        lineasencontradas.add("linea 16 vuelta");
+        lineasenc=lineasenc+"16V - ";
       }
     });
  //===========linea 17
@@ -195,12 +269,16 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea17.elementAt(0));
          print("linea 17==================================================1");
+        lineasencontradas.add("linea 17 ida");
+        lineasenc=lineasenc+"linea 17 ida \n";
       }
     });
     linea17.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea17.elementAt(1));
          print("linea 17==================================================2");
+        lineasencontradas.add("linea 17 vuelta");
+        lineasenc=lineasenc+"linea 17 vuelta \n";
       }
     });
      //===========linea 18
@@ -208,12 +286,16 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea18.elementAt(0));
          print("linea 18==================================================1");
+        lineasencontradas.add("linea 18 ida");
+        lineasenc=lineasenc+"linea 18 ida \n";
       }
     });
     linea18.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea18.elementAt(1));
         print("linea 18==================================================2");
+        lineasencontradas.add("linea 18 vuelta");
+        lineasenc=lineasenc+"linea 18 vuelta \n";
       }
     });
      setState(() {
@@ -305,12 +387,13 @@ class _MapScreenState extends State<MapScreen> {
           ),
           child: const Icon(Icons.center_focus_strong),
           ),
-          FloatingActionButton( //boton de radio===========
+          FloatingActionButton( //boton de radio==============================================
             heroTag: "btn3",
             backgroundColor: Theme.of(context).primaryColor,
           foregroundColor: Colors.black,
             onPressed: ()async{
               Position position = await _determinePosition();
+             
               _circle.add(
               Circle(
                 circleId: const CircleId("0"),
@@ -323,6 +406,21 @@ class _MapScreenState extends State<MapScreen> {
 
               getRoutesInsideCircles(position.latitude,position.longitude);
               lineaActual;
+               //=============== adding marker
+              markers.clear();
+              markers.add(Marker(
+              markerId: const MarkerId('currentLocation'),
+              position: LatLng(position.latitude, position.longitude),
+              infoWindow: InfoWindow(
+                title: 'Lineas dentro de rango',
+                snippet: lineasenc,
+
+              ),
+              )
+              );
+              
+              setState(() {});
+              //=============
             },
             child: const Icon(Icons.radar),
             //circles: _circle,
