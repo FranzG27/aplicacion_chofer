@@ -115,7 +115,7 @@ class _MapScreenState extends State<MapScreen> {
          print("linea 1==================================================1");
          if(lin1==false){
          lineasencontradas.add("linea 1 ida");
-         lineasenc=lineasenc+"linea 1 ida \n";
+         lineasenc=lineasenc+"1I - ";
          lin1=true;
          }
          
@@ -127,7 +127,7 @@ class _MapScreenState extends State<MapScreen> {
          print("linea 1==================================================2");
         if(lin1v==false){
         lineasencontradas.add("linea 1 vuelta");
-         lineasenc=lineasenc+"1I - ";
+         lineasenc=lineasenc+"1V - ";
          lin1v=true;
         }
          
@@ -168,14 +168,17 @@ class _MapScreenState extends State<MapScreen> {
         }
         
       }
-      break;
+      
     });
     linea5.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea5.elementAt(1));
          print("linea 5==================================================2");
+         if(lin5v==false){
          lineasencontradas.add("linea 5 vuelta"); 
          lineasenc=lineasenc+"5V - ";
+         lin5v=true;
+         }
       }
     });
     //===========linea 8
@@ -183,16 +186,22 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea8.elementAt(0));
          print("linea 8==================================================1");
+          if(lin8){
           lineasencontradas.add("linea 8 ida");
-          lineasenc=lineasenc+"linea 8 ida \n";
+          lineasenc=lineasenc+"8I - ";
+          lin8=true;
+          }
       }
     });
     linea8.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea8.elementAt(1));
          print("linea 8==================================================2");
+        if(lin8v==false){
         lineasencontradas.add("linea 8 vuelta");
-        lineasenc=lineasenc+"linea 8 vuelta \n";
+        lineasenc=lineasenc+"8V - ";
+        lin8v=true;
+        }
       }
     });
     //===========linea 9
@@ -200,16 +209,22 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea9.elementAt(0));
          print("linea 9==================================================1");
+        if(lin9==false){
         lineasencontradas.add("linea 9 ida");
-        lineasenc=lineasenc+"linea 9 ida \n";
+        lineasenc=lineasenc+"9I - ";
+        lin9=true;
+        }
       }
     });
     linea9.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea9.elementAt(1));
          print("linea 9==================================================2");
+        if(lin9v==false){
         lineasencontradas.add("linea 9 vuelta");
-        lineasenc=lineasenc+"linea 9 vuelta \n";
+        lineasenc=lineasenc+"9V - ";
+        lin9v=true;
+        }
       }
     });
 
@@ -218,16 +233,22 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea10.elementAt(0));
          print("linea 10==================================================1");
+        if(lin10==false){
         lineasencontradas.add("linea 10 ida");
-        lineasenc=lineasenc+"linea 10 ida \n";
+        lineasenc=lineasenc+"10I - ";
+        lin10=true;
+        }
       }
     });
     linea10.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea10.elementAt(1));
          print("linea 10==================================================2");
+        if(lin10v==false){
         lineasencontradas.add("linea 10 vuelta");
-        lineasenc=lineasenc+"linea 10 vuelta \n";
+        lineasenc=lineasenc+"10V - ";
+        lin10v=true;
+        }
       }
     });
      //===========linea 11
@@ -235,16 +256,22 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea11.elementAt(0));
          print("linea 11==================================================1");
+        if(lin11==false){
         lineasencontradas.add("linea 11 ida");
-        lineasenc=lineasenc+"linea 11 ida \n";
+        lineasenc=lineasenc+"11I - ";
+        lin11=true;
+        }
       }
     });
     linea11.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea11.elementAt(1));
          print("linea 11==================================================2");
+        if(lin11v==false){
         lineasencontradas.add("linea 11 vuelta");
-        lineasenc=lineasenc+"linea 11 vuelta \n";
+        lineasenc=lineasenc+"11V - ";
+        lin11v=true;
+        }
       }
     });
      //===========linea 16
@@ -252,16 +279,22 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea16.elementAt(0));
          print("linea 16==================================================1");
+        if(lin16==false){
         lineasencontradas.add("linea 16 ida");
         lineasenc=lineasenc+"16I - ";
+        lin16=true;
+        }
       }
     });
     linea16.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea16.elementAt(1));
          print("linea 16==================================================2");
+        if(lin16v==false){
         lineasencontradas.add("linea 16 vuelta");
         lineasenc=lineasenc+"16V - ";
+        lin16v=true;
+        }
       }
     });
  //===========linea 17
@@ -269,16 +302,22 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea17.elementAt(0));
          print("linea 17==================================================1");
+        if(lin17==false){
         lineasencontradas.add("linea 17 ida");
-        lineasenc=lineasenc+"linea 17 ida \n";
+        lineasenc=lineasenc+"17I - ";
+        lin17=true;
+        }
       }
     });
     linea17.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea17.elementAt(1));
          print("linea 17==================================================2");
+        if(lin17v==false){
         lineasencontradas.add("linea 17 vuelta");
-        lineasenc=lineasenc+"linea 17 vuelta \n";
+        lineasenc=lineasenc+"17V - ";
+        lin17v=true;
+        }
       }
     });
      //===========linea 18
@@ -286,16 +325,22 @@ class _MapScreenState extends State<MapScreen> {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea18.elementAt(0));
          print("linea 18==================================================1");
+        if(lin18==false){
         lineasencontradas.add("linea 18 ida");
-        lineasenc=lineasenc+"linea 18 ida \n";
+        lineasenc=lineasenc+"18I - ";
+        lin18=true;
+        }
       }
     });
     linea18.elementAt(1).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
         capturedRoutes.add(linea18.elementAt(1));
         print("linea 18==================================================2");
+        if(lin18v==false){
         lineasencontradas.add("linea 18 vuelta");
-        lineasenc=lineasenc+"linea 18 vuelta \n";
+        lineasenc=lineasenc+"18V - ";
+        lin18v=true;
+        }
       }
     });
      setState(() {
