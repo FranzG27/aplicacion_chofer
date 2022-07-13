@@ -78,6 +78,62 @@ class _MapScreenState extends State<MapScreen> {
     });
   }
 
+  //LINEAS DE VUELTA
+
+  void seleccionarLinea1v(){
+    setState(() {
+      lineaActual=linea1v;
+    });
+   // print("entra");
+  }
+
+  void seleccionarLinea2v(){
+    setState(() {
+      lineaActual=linea2v;
+    });
+  }
+
+  void seleccionarLinea5v(){
+    setState(() {
+      lineaActual=linea5v;
+    });
+  }
+   void seleccionarLinea8v(){
+    setState(() {
+      lineaActual=linea8v;
+    });
+  }
+   void seleccionarLinea9v(){
+    setState(() {
+      lineaActual=linea9v;
+    });
+  }
+   void seleccionarLinea10v(){
+    setState(() {
+      lineaActual=linea10v;
+    });
+  }
+   void seleccionarLinea11v(){
+    setState(() {
+      lineaActual=linea11v;
+    });
+  }
+   void seleccionarLinea16v(){
+    setState(() {
+      lineaActual=linea16v;
+    });
+  }
+   void seleccionarLinea17v(){
+    setState(() {
+      lineaActual=linea17v;
+    });
+  }
+   void seleccionarLinea18v(){
+    setState(() {
+      lineaActual=linea18v;
+    });
+  }
+
   @override
   void dispose() {
     _googleMapController?.dispose();
@@ -95,7 +151,7 @@ class _MapScreenState extends State<MapScreen> {
   bool lin16=false;
   bool lin17=false;
   bool lin18=false;
-   bool lin1v=false;
+  bool lin1v=false;
   bool lin2v=false;
   bool lin5v=false;
   bool lin8v=false;
@@ -121,9 +177,9 @@ class _MapScreenState extends State<MapScreen> {
          
       }
     });
-    linea1.elementAt(1).points.forEach((element) {
+    linea1v.elementAt(0).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
-        capturedRoutes.add(linea1.elementAt(1));
+        capturedRoutes.add(linea1v.elementAt(0));
          print("linea 1==================================================2");
         if(lin1v==false){
         lineasencontradas.add("linea 1 vuelta");
@@ -145,9 +201,9 @@ class _MapScreenState extends State<MapScreen> {
          }
       }
     });
-    linea2.elementAt(1).points.forEach((element) {
+    linea2v.elementAt(0).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
-        capturedRoutes.add(linea2.elementAt(1));
+        capturedRoutes.add(linea2v.elementAt(0));
          print("linea 2==================================================2");
         if(lin2v==false){
          lineasencontradas.add("linea 2 vuelta");
@@ -170,9 +226,9 @@ class _MapScreenState extends State<MapScreen> {
       }
       
     });
-    linea5.elementAt(1).points.forEach((element) {
+    linea5v.elementAt(0).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
-        capturedRoutes.add(linea5.elementAt(1));
+        capturedRoutes.add(linea5v.elementAt(0));
          print("linea 5==================================================2");
          if(lin5v==false){
          lineasencontradas.add("linea 5 vuelta"); 
@@ -193,9 +249,9 @@ class _MapScreenState extends State<MapScreen> {
           }
       }
     });
-    linea8.elementAt(1).points.forEach((element) {
+    linea8v.elementAt(0).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
-        capturedRoutes.add(linea8.elementAt(1));
+        capturedRoutes.add(linea8v.elementAt(0));
          print("linea 8==================================================2");
         if(lin8v==false){
         lineasencontradas.add("linea 8 vuelta");
@@ -216,9 +272,9 @@ class _MapScreenState extends State<MapScreen> {
         }
       }
     });
-    linea9.elementAt(1).points.forEach((element) {
+    linea9v.elementAt(0).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
-        capturedRoutes.add(linea9.elementAt(1));
+        capturedRoutes.add(linea9v.elementAt(0));
          print("linea 9==================================================2");
         if(lin9v==false){
         lineasencontradas.add("linea 9 vuelta");
@@ -240,9 +296,9 @@ class _MapScreenState extends State<MapScreen> {
         }
       }
     });
-    linea10.elementAt(1).points.forEach((element) {
+    linea10v.elementAt(0).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
-        capturedRoutes.add(linea10.elementAt(1));
+        capturedRoutes.add(linea10v.elementAt(0));
          print("linea 10==================================================2");
         if(lin10v==false){
         lineasencontradas.add("linea 10 vuelta");
@@ -263,9 +319,9 @@ class _MapScreenState extends State<MapScreen> {
         }
       }
     });
-    linea11.elementAt(1).points.forEach((element) {
+    linea11v.elementAt(0).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
-        capturedRoutes.add(linea11.elementAt(1));
+        capturedRoutes.add(linea11v.elementAt(0));
          print("linea 11==================================================2");
         if(lin11v==false){
         lineasencontradas.add("linea 11 vuelta");
@@ -286,9 +342,9 @@ class _MapScreenState extends State<MapScreen> {
         }
       }
     });
-    linea16.elementAt(1).points.forEach((element) {
+    linea16v.elementAt(0).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
-        capturedRoutes.add(linea16.elementAt(1));
+        capturedRoutes.add(linea16v.elementAt(0));
          print("linea 16==================================================2");
         if(lin16v==false){
         lineasencontradas.add("linea 16 vuelta");
@@ -309,9 +365,9 @@ class _MapScreenState extends State<MapScreen> {
         }
       }
     });
-    linea17.elementAt(1).points.forEach((element) {
+    linea17v.elementAt(0).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
-        capturedRoutes.add(linea17.elementAt(1));
+        capturedRoutes.add(linea17v.elementAt(0));
          print("linea 17==================================================2");
         if(lin17v==false){
         lineasencontradas.add("linea 17 vuelta");
@@ -332,9 +388,9 @@ class _MapScreenState extends State<MapScreen> {
         }
       }
     });
-    linea18.elementAt(1).points.forEach((element) {
+    linea18v.elementAt(0).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
-        capturedRoutes.add(linea18.elementAt(1));
+        capturedRoutes.add(linea18v.elementAt(0));
         print("linea 18==================================================2");
         if(lin18v==false){
         lineasencontradas.add("linea 18 vuelta");
@@ -372,6 +428,17 @@ class _MapScreenState extends State<MapScreen> {
       seleccionarLinea16,
       seleccionarLinea17,
       seleccionarLinea18,
+
+      seleccionarLinea1v,
+      seleccionarLinea2v,
+      seleccionarLinea5v,
+      seleccionarLinea8v,
+      seleccionarLinea9v,
+      seleccionarLinea10v,
+      seleccionarLinea11v,
+      seleccionarLinea16v,
+      seleccionarLinea17v,
+      seleccionarLinea18v,
       ),
       appBar: AppBar(
         centerTitle: false,
@@ -537,7 +604,20 @@ class _MapScreenState extends State<MapScreen> {
   VoidCallback action11,
   VoidCallback action16,
   VoidCallback action17,
-  VoidCallback action18,){
+  VoidCallback action18,
+
+  VoidCallback action1v,
+  VoidCallback action2v,
+  VoidCallback action5v,
+  VoidCallback action8v,
+  VoidCallback action9v,
+  VoidCallback action10v,
+  VoidCallback action11v,
+  VoidCallback action16v,
+  VoidCallback action17v,
+  VoidCallback action18v,
+  
+  ){
 
   final padding = const EdgeInsets.symmetric(horizontal: 20);
 
@@ -597,6 +677,62 @@ class _MapScreenState extends State<MapScreen> {
             buildMenuItem(
               text: 'linea 18',
               onClicked: () { action18(); 
+              Navigator.pop(context);}
+            ),
+
+            //LINEAS DE VUELTA
+            buildMenuItem(
+              text: 'linea 1 vuelta',
+              onClicked: () { 
+                action1v();
+                Navigator.pop(context);
+              }
+            ),
+            buildMenuItem(
+              text: 'linea 2 vuelta',
+              onClicked: () {
+               action2v(); 
+              Navigator.pop(context);}
+            ),
+            buildMenuItem(
+              text: 'linea 5 vuelta',
+              onClicked: () {
+               action5v(); 
+              Navigator.pop(context);}
+            ),
+            buildMenuItem(
+              text: 'linea 8 vuelta',
+              onClicked: () { action8v(); 
+              Navigator.pop(context);}
+            ),
+            buildMenuItem(
+              text: 'linea 9 vuelta',
+              onClicked: () { action9v(); 
+              Navigator.pop(context);}
+            ),
+            buildMenuItem(
+              text: 'linea 10 vuelta',
+              onClicked: () { action10v(); 
+              Navigator.pop(context);}
+            ),
+            buildMenuItem(
+              text: 'linea 11 vuelta',
+              onClicked: () { action11v(); 
+              Navigator.pop(context);}
+            ),
+            buildMenuItem(
+              text: 'linea 16 vuelta',
+              onClicked: () { action16v(); 
+              Navigator.pop(context);}
+            ),
+            buildMenuItem(
+              text: 'linea 17 vuelta',
+              onClicked: () { action17v(); 
+              Navigator.pop(context);}
+            ),
+            buildMenuItem(
+              text: 'linea 18 vuelta',
+              onClicked: () { action18v(); 
               Navigator.pop(context);}
             ),
           ],

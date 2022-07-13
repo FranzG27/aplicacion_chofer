@@ -12,10 +12,10 @@ import 'package:aplicacion_chofer/routes/rutas.dart';
             width: 5,
             points: rutalin8ida
           ),
-          const Polyline(
-            polylineId:  PolylineId('lin8v'),
-            color:  Colors.green,
-            width: 5,
-            points: rutalin8vuelta
-            ),
+          // const Polyline(
+          //   polylineId:  PolylineId('lin8v'),
+          //   color:  Colors.green,
+          //   width: 5,
+          //   points: rutalin8vuelta
+          //   ),
         };

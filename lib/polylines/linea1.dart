@@ -26,11 +26,11 @@ void loadExitPoint(BuildContext context) async{
             width: 5,
             points: rutalin1ida
           ),
-          const Polyline(
-            polylineId:  PolylineId('lin1v'),
-            color:  Colors.green,
-            width: 5,
-            points: rutalin1vuelta
-            ),
+          // const Polyline(
+          //   polylineId:  PolylineId('lin1v'),
+          //   color:  Colors.green,
+          //   width: 5,
+          //   points: rutalin1vuelta
+          //   ),
         };
       
