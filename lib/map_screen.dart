@@ -19,6 +19,7 @@ class _MapScreenState extends State<MapScreen> {
   );
 
   GoogleMapController? _googleMapController;
+  Marker? _specificLoc;
   Set<Marker> markers = {};
   Set<Circle> _circle = HashSet<Circle>();
 
@@ -162,8 +163,208 @@ class _MapScreenState extends State<MapScreen> {
   bool lin17v=false;
   bool lin18v=false;
 
+//===========para el infowindow de la ruta en lugar de pin especifico
+  void getlinesinfo(double currentLat,double currentLong){
+    lineasenc ="";
+    linea1.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 1==================================================1");
+         if(lin1==false){
+         lineasenc=lineasenc+"1I - ";
+         lin1=true;
+         }
+         
+      }
+    });
 
+    linea1v.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 1==================================================2");
+        if(lin1v==false){
+         lineasenc=lineasenc+"1V - ";
+         lin1v=true;
+        }
+         
+      }
+    });
+    //===========linea 2
+    linea2.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 2==================================================1");
+         if(lin2==false){
+         lineasenc=lineasenc+"2I - ";
+         lin2=true;
+         }
+      }
+    });
+    linea2v.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 2==================================================2");
+        if(lin2v==false){
+         lineasenc=lineasenc+"2V - ";
+         lin2v =true;
+         }
+      }
+    });
+//===========linea 5
+    linea5.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 5==================================================1");
+        if(lin5==false){
+        lineasenc=lineasenc+"5I - ";
+        lin5=true;
+        }
+        
+      }
+      
+    });
+    linea5v.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 5==================================================2");
+         if(lin5v==false){
+         lineasenc=lineasenc+"5V - ";
+         lin5v=true;
+         }
+      }
+    });
+    //===========linea 8
+    linea8.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 8==================================================1");
+          if(lin8==false){
+          lineasenc=lineasenc+"8I - ";
+          lin8=true;
+          }
+      }
+    });
+    linea8v.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 8==================================================2");
+        if(lin8v==false){
+        lineasenc=lineasenc+"8V - ";
+        lin8v=true;
+        }
+      }
+    });
+    //===========linea 9
+    linea9.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 9==================================================1");
+        if(lin9==false){
+        lineasenc=lineasenc+"9I - ";
+        lin9=true;
+        }
+      }
+    });
+    linea9v.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 9==================================================2");
+        if(lin9v==false){
+        lineasenc=lineasenc+"9V - ";
+        lin9v=true;
+        }
+      }
+    });
+
+    //===========linea 10
+    linea10.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 10==================================================1");
+        if(lin10==false){
+        lineasenc=lineasenc+"10I - ";
+        lin10=true;
+        }
+      }
+    });
+    linea10v.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 10==================================================2");
+        if(lin10v==false){
+        lineasenc=lineasenc+"10V - ";
+        lin10v=true;
+        }
+      }
+    });
+     //===========linea 11
+    linea11.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 11==================================================1");
+        if(lin11==false){
+        lineasenc=lineasenc+"11I - ";
+        lin11=true;
+        }
+      }
+    });
+    linea11v.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 11==================================================2");
+        if(lin11v==false){
+        lineasenc=lineasenc+"11V - ";
+        lin11v=true;
+        }
+      }
+    });
+     //===========linea 16
+    linea16.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 16==================================================1");
+        if(lin16==false){
+        lineasenc=lineasenc+"16I - ";
+        lin16=true;
+        }
+      }
+    });
+    linea16v.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 16==================================================2");
+        if(lin16v==false){
+        lineasenc=lineasenc+"16V - ";
+        lin16v=true;
+        }
+      }
+    });
+ //===========linea 17
+    linea17.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 17==================================================1");
+        if(lin17==false){
+        lineasenc=lineasenc+"17I - ";
+        lin17=true;
+        }
+      }
+    });
+    linea17v.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 17==================================================2");
+        if(lin17v==false){
+        lineasenc=lineasenc+"17V - ";
+        lin17v=true;
+        }
+      }
+    });
+     //===========linea 18
+    linea18.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+         print("linea 18==================================================1");
+        if(lin18==false){
+        lineasenc=lineasenc+"18I - ";
+        lin18=true;
+        }
+      }
+    });
+    linea18v.elementAt(0).points.forEach((element) {
+      if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
+        print("linea 18==================================================2");
+        if(lin18v==false){
+        lineasenc=lineasenc+"18V - ";
+        lin18v=true;
+        }
+      }
+    });
+  }
+ ///==============================================================================
   void getRoutesInsideCircles(double currentLat,double currentLong){
+    lineasenc ="";
     Set <Polyline> capturedRoutes ={};  
     linea1.elementAt(0).points.forEach((element) {
       if (isInsideRadius(currentLong,currentLat,element.longitude,element.latitude)) {
@@ -454,15 +655,20 @@ class _MapScreenState extends State<MapScreen> {
       body: GoogleMap(
         myLocationButtonEnabled: true,
         zoomControlsEnabled: false,
-        markers: markers,
+        //markers: markers,
         circles: _circle,
         initialCameraPosition: _initialCameraPosition,
         onMapCreated: (controller) => _googleMapController = controller,
         polylines: lineaActual,
-
+        markers: {
+          if (_specificLoc != null) _specificLoc!,
+        },
         //====================
-
+      
+         onLongPress: _addMarker,
+        
         //====================================
+        
       ),
       //-------------------------------------------------------------------
       floatingActionButton: Row(
@@ -479,16 +685,62 @@ class _MapScreenState extends State<MapScreen> {
                       target: LatLng(position.latitude, position.longitude),
                       zoom: 14)));
 
-              markers.clear();
-              markers.add(Marker(
-              markerId: const MarkerId('currentLocation'),
-              position: LatLng(position.latitude, position.longitude)));
-              setState(() {});
-              //getRoutesInsideCircles(position.longitude,position.latitude);
+                //usando el specific loc marker 
+                _specificLoc = Marker(
+                markerId: const MarkerId('current location'),
+         
+                infoWindow: InfoWindow(
+                title: 'Lineas dentro de rango',
+                snippet: lineasenc,
 
+              ),
+               icon:
+              BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+               position: LatLng(position.latitude, position.longitude),
+               );
+                
+                //================
+
+                /*markers.clear();
+                markers.add(Marker(
+                markerId: const MarkerId('currentLocation'),
+                position: LatLng(position.latitude, position.longitude)));
+                setState(() {});
+                //getRoutesInsideCircles(position.longitude,position.latitude);
+                */
+              setState(() {});
             },
             child: const Icon(Icons.location_on_outlined),
           ),
+          
+          FloatingActionButton(  //====================boton de ubicacion especifica para lineas en ese rango
+            heroTag: "btn4",
+            backgroundColor: Theme.of(context).primaryColor,
+          foregroundColor: Colors.black,
+            onPressed: () async {
+             // onLongPress: _addMarker;
+             _circle.clear(); 
+             
+              _circle.add(
+              Circle(
+                circleId: const CircleId("0"),
+                 center: LatLng(_specificLoc!.position.latitude, _specificLoc!.position.longitude),
+                  radius:  300,
+                  strokeWidth: 2,
+                   fillColor:  const Color.fromARGB(74, 12, 151, 121)
+              )
+              );
+
+              getRoutesInsideCircles(_specificLoc!.position.latitude, _specificLoc!.position.longitude);
+              lineaActual;
+             // _specificLoc!.infoWindow.title!(lineasenc);
+             // _specificLoc?.infoWindow.title;
+              
+            },
+            child: const Icon(Icons.local_library_outlined),
+            ),
+
+
           FloatingActionButton( //boton de centrado
           heroTag: "btn2",
           backgroundColor: Theme.of(context).primaryColor,
@@ -505,7 +757,8 @@ class _MapScreenState extends State<MapScreen> {
           foregroundColor: Colors.black,
             onPressed: ()async{
               Position position = await _determinePosition();
-             
+              _circle.clear();
+
               _circle.add(
               Circle(
                 circleId: const CircleId("0"),
@@ -518,8 +771,11 @@ class _MapScreenState extends State<MapScreen> {
 
               getRoutesInsideCircles(position.latitude,position.longitude);
               lineaActual;
-               //=============== adding marker
-              markers.clear();
+
+
+
+               //=============== adding marker current location
+              /*markers.clear();
               markers.add(Marker(
               markerId: const MarkerId('currentLocation'),
               position: LatLng(position.latitude, position.longitude),
@@ -529,7 +785,23 @@ class _MapScreenState extends State<MapScreen> {
 
               ),
               )
-              );
+              );*/
+
+              //====================probando a usar el marker de specificloc para poner el current location
+              //getlinesinfo(position.latitude, position.longitude);
+              _specificLoc = Marker(
+              markerId: const MarkerId('ubicacion'),
+         
+                infoWindow: InfoWindow(
+                title: 'Lineas dentro de rango',
+                snippet: lineasenc,
+
+              ),
+               icon:
+              BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+               position: LatLng(position.latitude, position.longitude),
+               );
+              //==============================
               
               setState(() {});
               //=============
@@ -753,8 +1025,42 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   
+  void _addMarker(LatLng pos) {
+    getlinesinfo(pos.latitude, pos.longitude);
+    if (_specificLoc == null ) {
+      setState(() {
+        _specificLoc = Marker(
+          markerId: const MarkerId('ubicacion'),
+          //infoWindow: const InfoWindow(title: 'ubicacion'),
+         
+          infoWindow: InfoWindow(
+                title: 'Lineas dentro de rango',
+                snippet: lineasenc,
 
+              ),
+          icon:
+              BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+          position: pos,
+        );
+      });
+    } else{
+      setState(() {
+        _specificLoc = Marker(
+          markerId: const MarkerId('ubicacion'),
+          infoWindow: InfoWindow(
+                title: 'Lineas dentro de rango',
+                snippet: lineasenc,
 
-
+              ),
+          icon:
+              BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+          position: pos,
+        );
+      });
+    }
+  }
 }
+
+
+
 

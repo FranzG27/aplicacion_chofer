@@ -41,6 +41,16 @@ class WelcomePage extends StatelessWidget{
                     fontSize: 18,
                   ),
                   ),
+                   //=========================added by franz for delete
+                  /*const SizedBox(height: 20,),
+                  const Text('by Franz G.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.lightGreen,
+                    fontSize: 18,
+                  ),
+                  ),*/
+                  //=========================================
                  
                   const SizedBox(height: 40),
                   Padding(
