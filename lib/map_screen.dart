@@ -1,9 +1,15 @@
+import 'dart:async';
 import 'dart:collection';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:aplicacion_chofer/polylines/polylines.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:location/location.dart';
+import 'dart:typed_data';//for the car
+
+
 
 
 class MapScreen extends StatefulWidget {
@@ -22,6 +28,10 @@ class _MapScreenState extends State<MapScreen> {
   Marker? _specificLoc;
   Set<Marker> markers = {};
   Set<Circle> _circle = HashSet<Circle>();
+
+  Circle? circlenew; 
+  Location _tracker = Location();
+  StreamSubscription? _streamSubscription;
 
   Set<Polyline> lineaActual=Set<Polyline>();
 
@@ -135,6 +145,61 @@ class _MapScreenState extends State<MapScreen> {
     });
   }
 
+  //===============================draw lineas ida y vuelta y buses en recorrido 
+  void seleccionarLinea1iv(){
+    setState(() {
+      lineaActual=linea1iv;
+    });
+   // print("entra");
+  }
+
+  void seleccionarLinea2iv(){
+    setState(() {
+      lineaActual=linea2iv;
+    });
+  }
+
+  void seleccionarLinea5iv(){
+    setState(() {
+      lineaActual=linea5iv;
+    });
+  }
+   void seleccionarLinea8iv(){
+    setState(() {
+      lineaActual=linea8iv;
+    });
+  }
+   void seleccionarLinea9iv(){
+    setState(() {
+      lineaActual=linea9iv;
+    });
+  }
+   void seleccionarLinea10iv(){
+    setState(() {
+      lineaActual=linea10iv;
+    });
+  }
+   void seleccionarLinea11iv(){
+    setState(() {
+      lineaActual=linea11iv;
+    });
+  }
+   void seleccionarLinea16iv(){
+    setState(() {
+      lineaActual=linea16iv;
+    });
+  }
+   void seleccionarLinea17iv(){
+    setState(() {
+      lineaActual=linea17iv;
+    });
+  }
+   void seleccionarLinea18iv(){
+    setState(() {
+      lineaActual=linea18iv;
+    });
+  }
+  //====================
   @override
   void dispose() {
     _googleMapController?.dispose();
@@ -640,6 +705,17 @@ class _MapScreenState extends State<MapScreen> {
       seleccionarLinea16v,
       seleccionarLinea17v,
       seleccionarLinea18v,
+
+      seleccionarLinea1iv,
+      seleccionarLinea2iv,
+      seleccionarLinea5iv,
+      seleccionarLinea8iv,
+      seleccionarLinea9iv,
+      seleccionarLinea10iv,
+      seleccionarLinea11iv,
+      seleccionarLinea16iv,
+      seleccionarLinea17iv,
+      seleccionarLinea18iv,
       ),
       appBar: AppBar(
         centerTitle: false,
@@ -749,8 +825,21 @@ class _MapScreenState extends State<MapScreen> {
             
             CameraUpdate.newCameraPosition(_initialCameraPosition),
           ),
+          
           child: const Icon(Icons.center_focus_strong),
           ),
+          //=======================
+          FloatingActionButton( //boton para cortar 
+          heroTag: "btn5",
+          backgroundColor: Theme.of(context).primaryColor,
+          foregroundColor: Colors.black,
+          onPressed: () {
+                      _streamSubscription!.cancel();
+                      },
+          
+          child: const Icon(Icons.refresh),
+          ),
+          //=======================
           FloatingActionButton( //boton de radio==============================================
             heroTag: "btn3",
             backgroundColor: Theme.of(context).primaryColor,
@@ -888,6 +977,17 @@ class _MapScreenState extends State<MapScreen> {
   VoidCallback action16v,
   VoidCallback action17v,
   VoidCallback action18v,
+
+  VoidCallback action1iv,
+  VoidCallback action2iv,
+  VoidCallback action5iv,
+  VoidCallback action8iv,
+  VoidCallback action9iv,
+  VoidCallback action10iv,
+  VoidCallback action11iv,
+  VoidCallback action16iv,
+  VoidCallback action17iv,
+  VoidCallback action18iv,
   
   ){
 
@@ -903,6 +1003,22 @@ class _MapScreenState extends State<MapScreen> {
               text: 'linea 1',
               onClicked: () { 
                 action1();
+                //getCurrentLocationCar();
+                Navigator.pop(context);
+              }
+            ),
+             buildMenuItem(
+              text: 'linea 1 vuelta',
+              onClicked: () { 
+                action1v();
+                Navigator.pop(context);
+              }
+            ),
+             buildMenuItem(//===============================pedir linea 1
+              text: 'ver buses lin 1',
+              onClicked: () { 
+                action1iv();
+                getCurrentLocationCar();
                 Navigator.pop(context);
               }
             ),
@@ -911,25 +1027,92 @@ class _MapScreenState extends State<MapScreen> {
               onClicked: () { action2(); 
               Navigator.pop(context);}
             ),
+             buildMenuItem(
+              text: 'linea 2 vuelta',
+              onClicked: () {
+               action2v(); 
+              Navigator.pop(context);}
+            ),
+             buildMenuItem(//===============================pedir linea 2
+              text: 'ver buses lin 2',
+              onClicked: () { 
+                action2iv();
+                getCurrentLocationCar();
+                Navigator.pop(context);
+              }
+            ),
             buildMenuItem(
               text: 'linea 5',
               onClicked: () { action5(); 
               Navigator.pop(context);}
             ),
             buildMenuItem(
+              text: 'linea 5 vuelta',
+              onClicked: () {
+               action5v(); 
+              Navigator.pop(context);}
+            ),
+             buildMenuItem(//===============================pedir linea 5
+              text: 'ver buses lin 5',
+              onClicked: () { 
+                action5iv();
+                getCurrentLocationCar();
+                Navigator.pop(context);
+              }
+            ),
+            buildMenuItem(
               text: 'linea 8',
               onClicked: () { action8(); 
               Navigator.pop(context);}
+            ),
+             buildMenuItem(
+              text: 'linea 8 vuelta',
+              onClicked: () { action8v(); 
+              Navigator.pop(context);}
+            ),
+             buildMenuItem(//===============================pedir linea 8
+              text: 'ver buses lin 8',
+              onClicked: () { 
+                action8iv();
+                getCurrentLocationCar();
+                Navigator.pop(context);
+              }
             ),
             buildMenuItem(
               text: 'linea 9',
               onClicked: () { action9(); 
               Navigator.pop(context);}
             ),
+             buildMenuItem(
+              text: 'linea 9 vuelta',
+              onClicked: () { action9v(); 
+              Navigator.pop(context);}
+            ),
+             buildMenuItem(//===============================pedir linea 9
+              text: 'ver buses lin 9',
+              onClicked: () { 
+                action9iv();
+                getCurrentLocationCar();
+                Navigator.pop(context);
+              }
+            ),
             buildMenuItem(
               text: 'linea 10',
               onClicked: () { action10(); 
               Navigator.pop(context);}
+            ),
+             buildMenuItem(
+              text: 'linea 10 vuelta',
+              onClicked: () { action10v(); 
+              Navigator.pop(context);}
+            ),
+             buildMenuItem(//===============================pedir linea 10
+              text: 'ver buses lin1',
+              onClicked: () { 
+                action10iv();
+                getCurrentLocationCar();
+                Navigator.pop(context);
+              }
             ),
             buildMenuItem(
               text: 'linea 11',
@@ -937,23 +1120,75 @@ class _MapScreenState extends State<MapScreen> {
               Navigator.pop(context);}
             ),
             buildMenuItem(
+              text: 'linea 11 vuelta',
+              onClicked: () { action11v(); 
+              Navigator.pop(context);}
+            ),
+             buildMenuItem(//===============================pedir linea 11
+              text: 'ver buses lin 11',
+              onClicked: () { 
+                action11iv();
+                getCurrentLocationCar();
+                Navigator.pop(context);
+              }
+            ),
+            buildMenuItem(
               text: 'linea 16',
               onClicked: () { action16(); 
               Navigator.pop(context);}
+            ),
+            buildMenuItem(
+              text: 'linea 16 vuelta',
+              onClicked: () { action16v(); 
+              Navigator.pop(context);}
+            ),
+             buildMenuItem(//===============================pedir linea 16
+              text: 'ver buses lin 16',
+              onClicked: () { 
+                action16iv();
+                getCurrentLocationCar();
+                Navigator.pop(context);
+              }
             ),
             buildMenuItem(
               text: 'linea 17',
               onClicked: () { action17(); 
               Navigator.pop(context);}
             ),
+             buildMenuItem(
+              text: 'linea 17 vuelta',
+              onClicked: () { action17v(); 
+              Navigator.pop(context);}
+            ),
+             buildMenuItem(//===============================pedir linea 17
+              text: 'ver buses lin 17',
+              onClicked: () { 
+                action17iv();
+                getCurrentLocationCar();
+                Navigator.pop(context);
+              }
+            ),
             buildMenuItem(
               text: 'linea 18',
               onClicked: () { action18(); 
               Navigator.pop(context);}
             ),
+            buildMenuItem(
+              text: 'linea 18 vuelta',
+              onClicked: () { action18v(); 
+              Navigator.pop(context);}
+            ),
+             buildMenuItem(//===============================pedir linea 18
+              text: 'ver buses lin 18',
+              onClicked: () { 
+                action18iv();
+                getCurrentLocationCar();
+                Navigator.pop(context);
+              }
+            ),
 
             //LINEAS DE VUELTA
-            buildMenuItem(
+           /* buildMenuItem(
               text: 'linea 1 vuelta',
               onClicked: () { 
                 action1v();
@@ -1006,7 +1241,7 @@ class _MapScreenState extends State<MapScreen> {
               text: 'linea 18 vuelta',
               onClicked: () { action18v(); 
               Navigator.pop(context);}
-            ),
+            ),*/
           ],
         ),
       ),
@@ -1059,7 +1294,68 @@ class _MapScreenState extends State<MapScreen> {
       });
     }
   }
+  //function to get car image
+  Future<Uint8List> getMarkerCar() async {
+    ByteData byteData =
+        await DefaultAssetBundle.of(context).load("lib/assets/images/auto.png");
+    return byteData.buffer.asUint8List();
+  }
+
+  //Function for updateMarkerAndCircle
+  void updateMarker(LocationData newLocalData, Uint8List imageData) {
+    LatLng latlng = LatLng(newLocalData.latitude!, newLocalData.longitude!);
+    this.setState(() {
+      _specificLoc = Marker(
+          markerId: MarkerId("marcador"),
+          position: latlng,
+          rotation: newLocalData.heading!,
+          draggable: false,
+          zIndex: 2,
+          flat: true,
+          anchor: Offset(0.5, 0.5),
+          icon: BitmapDescriptor.fromBytes(imageData));
+      circlenew = Circle(
+          circleId: CircleId("carro"),
+          radius: newLocalData.accuracy!,
+          zIndex: 1,
+          strokeColor: Colors.blue,
+          center: latlng,
+          fillColor: Colors.blue.withAlpha(70));
+    });
+  }
+
+  //Function for capture your current position
+  void getCurrentLocationCar() async {
+    try {
+      Uint8List imageData = await getMarkerCar();
+      var location = await _tracker.getLocation(); //aqui podriamos llamar datos de la db
+
+      updateMarker(location, imageData);
+
+      if (_streamSubscription != null) {
+        _streamSubscription?.cancel();
+      }
+
+      _streamSubscription = _tracker.onLocationChanged.listen((newLocalData) {
+        if (_googleMapController != null) {
+          _googleMapController
+              ?.animateCamera(CameraUpdate.newCameraPosition(new CameraPosition(
+                  bearing: 100,
+                  target: LatLng(newLocalData.latitude!, newLocalData.longitude!),
+                  tilt: 0,
+                  zoom: 13.00)));
+          updateMarker(newLocalData, imageData);
+        }
+      });
+    } on PlatformException catch (e) {
+      if (e.code == 'PERMISSION_DENIED') {
+        debugPrint("Permission Denied");
+      }
+    }
+  }
+
 }
+
 
 
 

@@ -42,6 +42,7 @@ dependencies:
   http: ^0.13.3
   file_picker: ^4.2.7
   shared_preferences: ^2.0.13
+  location: #^4.2.0
 
 flutter_icons:
   android: true
